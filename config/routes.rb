@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => ''
+  root 'users#index'
   resources :users
   resources :events
 end
