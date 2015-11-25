@@ -1,0 +1,12 @@
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :bio %>
+  <%= f.text_field :bio %>
+  <br>
+  <%= f.label :color %>
+  <%= f.text_field :color %>
+  <br>
+  <%= f.submit "submit" %>
+<% end %>

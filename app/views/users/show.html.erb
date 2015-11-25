@@ -6,3 +6,4 @@
   Color: <%= @user.color %>
 </p>
 <%= link_to "Calendar", user_events_path(:user_id => params[:id]) %>
+<%= link_to "Edit user", edit_user_path(:user_id => params[:id]) %>

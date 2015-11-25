@@ -4,6 +4,8 @@
 <% @users.each do |user| %>
   <div>
       <%= link_to "#{user.name}", user_path(id: user.id) %>
+      <%= link_to "edit", edit_user_path(id: user.id) %>
+      <%= link_to "delete", user_path(id: user.id), method: :delete %>
   </div>
 <% end %>
 
