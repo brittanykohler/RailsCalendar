@@ -1,5 +1,10 @@
+<h1>Welcome to calendars!</h1>
+
+<h2>Whose calendar would you like to see?</h2>
 <% @users.each do |user| %>
   <div>
-      <%= user.name %>
+      <%= link_to "#{user.name}'s", user_path(id: user.id) %>
   </div>
 <% end %>
+
+<%= link_to "+ user", new_user_path %>

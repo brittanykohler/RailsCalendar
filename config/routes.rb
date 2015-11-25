@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'users#index'
-  resources :users
-  resources :events
+  resources :users do
+      resources :events
+  end
 end

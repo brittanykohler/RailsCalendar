@@ -1,25 +1,25 @@
 class UsersController < ApplicationController
   def index
-    @users = user.all
+    @users = User.all
   end
 
   def show
     id = params[:id]
-    @user = user.find(id)
+    @user = User.find(id)
   end
 
   def new
-    @user = user.new
+    @user = User.new
   end
 
   def create
-    user.create(user_params[:user])
+    User.create(user_params[:user])
     # redirect_to "/people/"
   end
 
   def delete
     id = params[:id]
-    user.delete(id)
+    User.delete(id)
     # redirect_to "/people"
   end
 
