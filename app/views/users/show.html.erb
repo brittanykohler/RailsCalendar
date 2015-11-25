@@ -1,1 +1,8 @@
-<h1><%= @user.name %>'s calendar</h1>
+<h1><%= @user.name %></h1>
+<p>
+  <%= @user.bio %>
+</p>
+<p>
+  Color: <%= @user.color %>
+</p>
+<%= link_to "Calendar", user_events_path(:user_id => params[:id]) %>
