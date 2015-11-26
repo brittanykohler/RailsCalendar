@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = Event.where(:user_id => params[:user_id])
+    @user = User.find(params[:user_id])
   end
 
   def show
@@ -14,6 +15,7 @@ class EventsController < ApplicationController
 
   def create
     Event.create(event_params[:event])
+    redirect_to user_events_path(:user_id => params[:user_id])
   end
 
   def destroy

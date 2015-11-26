@@ -1,0 +1,13 @@
+<%= form_for :event, url:url, method: method do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.label :event_date %>
+  <%= f.text_field :event_date %>
+  <%= hidden_field_tag :user_id, params[:user_id] %>
+  <br>
+  <%= f.submit "submit" %>
+<% end %>

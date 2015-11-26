@@ -1,0 +1,11 @@
+<h1><%= @event.name %></h1>
+<p>
+  <%= @event.description %>
+</p>
+<p>
+  <%= @event.event_date.strftime("%D") %>
+</p>
+<p>
+  <%= @event.event_date.strftime("%I:%M %p") %>
+</p>
+<%= link_to "Edit event", edit_user_event_path(:user_id => @event.user_id, :id => @event.id) %>
