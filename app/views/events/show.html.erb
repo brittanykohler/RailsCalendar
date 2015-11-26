@@ -9,3 +9,4 @@
   <%= @event.event_date.strftime("%I:%M %p") %>
 </p>
 <%= link_to "Edit event", edit_user_event_path(:user_id => @event.user_id, :id => @event.id) %>
+<%= link_to "Delete event", user_event_path(:user_id => @event.user_id, :id => @event.id), method: :delete %>

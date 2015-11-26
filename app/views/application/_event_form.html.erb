@@ -6,7 +6,7 @@
   <%= f.text_field :description %>
   <br>
   <%= f.label :event_date %>
-  <%= f.text_field :event_date %>
+  <%= f.datetime_select :event_date, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}, ampm: true %>
   <%= hidden_field_tag :user_id, params[:user_id] %>
   <br>
   <%= f.submit "submit" %>
