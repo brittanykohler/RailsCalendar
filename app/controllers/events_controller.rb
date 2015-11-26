@@ -23,7 +23,7 @@ class EventsController < ApplicationController
   def destroy
     id = params[:id]
     Event.delete(id)
-    redirect_to "/"
+    redirect_to user_events_path(:user_id => params[:user_id])
   end
 
   def edit
