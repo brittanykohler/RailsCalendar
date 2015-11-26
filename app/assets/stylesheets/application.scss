@@ -1,0 +1,24 @@
+@import "bootstrap";
+
+.form-actions {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.user-field {
+  width: 260px;
+}
+
+.submit-button {
+  width: 60px;
+  height: 20px;
+  display: inline;
+  border-width: 1px;
+  border-style: none;
+  background-color: #FFFFFF;
+  font-size: 13px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 30px;
+}
