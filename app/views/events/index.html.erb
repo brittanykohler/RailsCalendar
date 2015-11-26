@@ -40,7 +40,7 @@
       <%= date.day %>
       <% @events.each do |event| %>
         <% if event.event_date.day == date.day && event.event_date.month == date.month %>
-          <p><%= link_to event.name, user_event_path(:user_id => @user.id, :id => event.id) %></p>
+          <p><%= link_to event.name, user_event_path(:user_id => @user.id, :id => event.id), class: "event-link" %></p>
         <% end %>
       <% end %>
     <% end %>
@@ -50,6 +50,6 @@
 
 <div class="row">
   <div class="col-md-12 text-center">
-    <%= link_to "Add event", new_user_event_path(:user_id => @user.id) %>
+    <%= link_to "Add event", new_user_event_path(:user_id => @user.id), class: "add-link" %>
   </div>
 </div>

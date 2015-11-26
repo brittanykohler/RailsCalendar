@@ -31,7 +31,7 @@ body {
 
 .cal-width-height {
   width: 10%;
-  height: 80px;
+  height: 70px;
 }
 
 .not-month {
@@ -74,4 +74,28 @@ hr {
   margin-top: 10px;
   margin-bottom: 10px;
   border-width: 2px;
+}
+
+.add-link {
+  font-family: 'Satisfy', cursive;
+  font-size: 20px;
+  color: #1c1c58;
+}
+
+.event-link {
+  color: #00cc99;
+}
+
+.nav-link {
+  color: #1c1c58;
+}
+
+ .event-link:hover {
+  text-decoration: none;
+  color: #1c1c58;
+}
+
+.add-link:hover, .nav-link:hover {
+  color: #00cc99;
+  text-decoration: none;
 }
