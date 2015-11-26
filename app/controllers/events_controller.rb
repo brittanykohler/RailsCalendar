@@ -14,7 +14,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    Event.create(event_params[:event])
+    event = Event.create(event_params[:event])
+    event.user_id = params[:user_id]
+    event.save
     redirect_to user_events_path(:user_id => params[:user_id])
   end
 
@@ -27,6 +29,7 @@ class EventsController < ApplicationController
   def edit
     id = params[:id]
     @event = Event.find(id)
+    session[:return_to] = request.referer
   end
 
   def update
@@ -36,9 +39,13 @@ class EventsController < ApplicationController
     name: event_params[:event][:name],
     description: event_params[:event][:description],
     event_date: event_params[:event][:event_date],
-    user_id: event_params[:event][:user_id]
     )
-    redirect_to "/"
+    if session[:return_to].nil?
+      redirect_to "/"
+    else
+      redirect_to session[:return_to]
+    end
+    session[:return_to] = nil
   end
 
 

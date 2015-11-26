@@ -3,6 +3,8 @@
 <% @events.each do |event| %>
   <div>
     <%= link_to event.name, user_event_path(:user_id => @user.id, :id => event.id) %>
+    <%= link_to "edit", edit_user_event_path(:user_id => @user.id, :id => event.id) %>
+    <%= link_to "delete", user_event_path(:user_id => @user.id, :id => event.id), method: :delete %>
   </div>
 <% end %>
 <%= link_to "+ event", new_user_event_path(:user_id => @user.id) %>
