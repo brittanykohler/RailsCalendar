@@ -137,6 +137,11 @@ hr {
   padding-top: 40px;
   margin: 10px;
   color: #000000;
+  font-weight: bold;
+}
+
+.gray-button {
+  background-color: #e4e0eb;
 }
 
 .button-container {
@@ -147,4 +152,8 @@ hr {
 
 .row-padding {
   padding-top: 20px;
+}
+
+.event-description {
+  font-size: 22px;
 }
