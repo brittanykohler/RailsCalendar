@@ -1,34 +1,31 @@
 <div class="row">
-  <div class="col-md-12 text-center month-header">
-    <h1>Welcome to Calendars!</h1>
+  <div class="col-md-12 text-center">
+    <h1 class="home-pg-header">Calendars</h1>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12 text-center">
-    <h2>Choose a user</h2>
+    <h2 class="home-pg-sub-header">Choose a user</h2>
   </div>
 </div>
 
 
 <% @users.each do |user| %>
   <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-2 text-center">
-      <%= link_to "#{user.name}", user_path(id: user.id) %>
+    <div class="col-md-5"></div>
+    <div class="col-md-1 text-center">
+      <%= link_to "#{user.name}", user_path(id: user.id), class:"user-link" %>
     </div>
     <div class="col-md-1 text-center">
-        <%= link_to "edit", edit_user_path(id: user.id) %>
+        <%= link_to "x", user_path(id: user.id), method: :delete, class:"user-link" %>
     </div>
-    <div class="col-md-1 text-center">
-        <%= link_to "delete", user_path(id: user.id), method: :delete %>
-    </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-5"></div>
 </div>
 <% end %>
 
-<div class="row">
+<div class="row row-padding">
   <div class="col-md-12 text-center">
-    <%= link_to "+ user", new_user_path %>
+    <%= link_to "Add user", new_user_path, class: "add-link" %>
   </div>
 </div>

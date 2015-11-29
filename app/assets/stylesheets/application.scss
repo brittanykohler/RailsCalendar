@@ -42,7 +42,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 60px;
-  // float: left;
 }
 
 .cal-width-height {
@@ -67,6 +66,16 @@ body {
 .month-header {
   font-family: 'Satisfy', cursive;
   font-size: 64px;
+}
+
+.home-pg-header {
+  font-family: 'Satisfy', cursive;
+  font-size: 96px;
+}
+
+.home-pg-sub-header {
+  font-size: 24px;
+  color: #1c1c58;
 }
 
 .year-header {
@@ -102,7 +111,7 @@ hr {
   color: #00cc99;
 }
 
-.nav-link {
+.nav-link, .user-link {
   color: #1c1c58;
 }
 
@@ -111,7 +120,31 @@ hr {
   color: #1c1c58;
 }
 
-.add-link:hover, .nav-link:hover {
+.add-link:hover, .nav-link:hover, .user-button:hover, .user-link:hover {
   color: #00cc99;
   text-decoration: none;
+}
+
+.user-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: inline-block;
+  border-color: #000000;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  padding-top: 40px;
+  margin: 10px;
+  color: #000000;
+}
+
+.button-container {
+  margin: auto;
+  width: 250px;
+  margin-top: 20px;
+}
+
+.row-padding {
+  padding-top: 20px;
 }
