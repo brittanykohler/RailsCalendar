@@ -1,8 +1,8 @@
 users = [
-  {name: "Brittany", bio: "Likes calendars", color: "gray"},
-  {name: "Kristi", bio: "Brittany's roommate", color: "green"},
-  {name: "Kat", bio: "Birthday girl", color: "purple"},
-  {name: "Kelly", bio: "Down under", color: "blue"},
+  {name: "Brittany", bio: "Likes calendars"},
+  {name: "Kristi", bio: "Brittany's roommate"},
+  {name: "Kat", bio: "Birthday girl"},
+  {name: "Kelly", bio: "Down under"},
 ]
 
 users.each do |user|

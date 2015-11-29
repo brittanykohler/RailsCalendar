@@ -18,6 +18,10 @@ class EventsController < ApplicationController
   def create
     event = Event.create(event_params[:event])
     event.user_id = params[:user_id]
+    datetime = Time.new(params[:event]["event_date(1i)"].to_i, params[:event]["event_date(2i)"].to_i,
+                        params[:event]["event_date(3i)"].to_i, params[:event]["event_date(4i)"].to_i,
+                        params[:event]["event_date(5i)"].to_i)
+    event.event_date = datetime
     event.save
     redirect_to user_events_path(:user_id => params[:user_id])
   end
@@ -40,8 +44,12 @@ class EventsController < ApplicationController
     event.update(
     name: event_params[:event][:name],
     description: event_params[:event][:description],
-    event_date: event_params[:event][:event_date],
     )
+    datetime = Time.new(params[:event]["event_date(1i)"].to_i, params[:event]["event_date(2i)"].to_i,
+                        params[:event]["event_date(3i)"].to_i, params[:event]["event_date(4i)"].to_i,
+                        params[:event]["event_date(5i)"].to_i)
+    event.event_date = datetime
+    event.save
     if session[:return_to].nil?
       redirect_to "/"
     else
