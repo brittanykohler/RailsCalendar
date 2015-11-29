@@ -16,6 +16,10 @@ body {
   width: 260px;
 }
 
+.event-field {
+  width: 400px;
+}
+
 .submit-button {
   width: 60px;
   height: 20px;
@@ -27,6 +31,18 @@ body {
   margin-left: auto;
   margin-right:auto;
   margin-top: 30px;
+}
+
+.submit-button-event {
+  border-width: 1px;
+  border-style: none;
+  background-color: #FFFFFF;
+  font-size: 13px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60px;
+  // float: left;
 }
 
 .cal-width-height {
