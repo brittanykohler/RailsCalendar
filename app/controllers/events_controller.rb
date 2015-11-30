@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @event = Event.new(:event_date => "2015-11-01".to_datetime)
   end
 
   def create

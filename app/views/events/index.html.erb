@@ -40,7 +40,7 @@
       <%= date.day %>
       <% @events.each do |event| %>
         <% if event.event_date.day == date.day && event.event_date.month == date.month %>
-          <p><%= link_to event.name, user_event_path(:user_id => @user.id, :id => event.id), class: "event-link" %></p>
+          <p><%= link_to "#{event.event_date.strftime("%I:%M")} #{event.name}", user_event_path(:user_id => @user.id, :id => event.id), class: "event-link" %></p>
         <% end %>
       <% end %>
     <% end %>

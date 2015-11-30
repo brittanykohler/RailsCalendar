@@ -17,7 +17,7 @@
   <div class="form-group">
       <%= f.label :event_date, class: "col-md-5 control-label text-right" %>
       <div class="col-md-7">
-        <%= f.datetime_select :event_date, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}, ampm: true %>
+        <%= f.datetime_select :event_date, start_year: 2015, end_year: 2016, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}, ampm: true %>
       </div>
   </div>
 
