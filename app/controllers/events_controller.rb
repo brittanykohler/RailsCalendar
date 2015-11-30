@@ -3,7 +3,6 @@ class EventsController < ApplicationController
     @events = Event.where(:user_id => params[:user_id])
     @user = User.find(params[:user_id])
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
-    # @events_by_date = Event.group(&:date)
   end
 
   def show
@@ -12,7 +11,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new(:event_date => "2015-11-01".to_datetime)
+    @event = Event.new
   end
 
   def create
