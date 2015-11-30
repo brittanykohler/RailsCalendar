@@ -29,7 +29,6 @@ class UsersController < ApplicationController
     user.update(
     name: user_params[:user][:name],
     bio: user_params[:user][:bio],
-    color: user_params[:user][:color]
     )
     if session[:return_to].nil?
       redirect_to "/"
@@ -48,6 +47,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(user:[:name, :bio, :color])
+    params.permit(user:[:name, :bio)
   end
 end
