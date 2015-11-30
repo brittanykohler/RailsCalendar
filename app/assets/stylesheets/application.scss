@@ -13,7 +13,7 @@ body {
 }
 
 .user-field {
-  width: 260px;
+  width: 220px;
 }
 
 .event-field {
@@ -156,4 +156,8 @@ hr {
 
 .event-description {
   font-size: 22px;
+}
+
+#event_event_date_1i, #event_event_date_2i, #event_event_date_3i, #event_event_date_4i, #event_event_date_5i {
+  border: none;
 }
