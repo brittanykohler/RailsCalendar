@@ -49,7 +49,18 @@ body {
   height: 70px;
 }
 
-.not-month {
+.cal-width-height a {
+  color: #1c1c58;
+  text-decoration: none;
+  font-size: 18px;
+}
+.cal-width-height a:hover {
+  color: #00cc99;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.not-month a {
   color: #999999;
 }
 
