@@ -16,3 +16,5 @@ Please consider contributing to RailsCalendar to improve the functionality and d
 * Allowing users to create shared calendars
 * Allowing a user to view a calendar by day, week, or month
 * Updating the design on the event input page
+* Adding end date/time for events
+* Updating calendar add event functionality - perhaps the entire cell could be a link to add an event

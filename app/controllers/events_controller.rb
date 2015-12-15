@@ -3,7 +3,6 @@ class EventsController < ApplicationController
     @events = Event.where(:user_id => params[:user_id])
     @user = User.find(params[:user_id])
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
-    # dsfd
   end
 
   def show
