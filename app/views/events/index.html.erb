@@ -45,16 +45,16 @@
           <p><%= link_to event.name, user_event_path(:user_id => @user.id, :id => event.id), class: "event-link" %></p>
         <% end %>
       <% end %>
-      <!-- This adds a + to each calendar cell to add a new event. It is ugly and isn't ideal. -->
-      <%= link_to "+", new_user_event_path(:user_id => @user.id, :cal_date => date)  %>
+      <!-- This adds a + to each calendar cell to add a new event. It is ugly and isn't ideal.
+      <%= link_to "+", new_user_event_path(:user_id => @user.id, :cal_date => date)  %> -->
     <% end %>
   </div>
   <div class="col-md-1"></div>
 </div>
 
-<!-- This is a general link to add an event, but users must enter in each field, which is a little annoying -->
-<!-- <div class="row">
+This is a general link to add an event, but users must enter in each field, which is a little annoying
+<div class="row">
   <div class="col-md-12 text-center">
     <%= link_to "Add event", new_user_event_path(:user_id => @user.id, :cal_date => @date), class: "add-link" %>
   </div>
-</div> -->
+</div>
