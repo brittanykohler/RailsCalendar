@@ -60,4 +60,20 @@ RSpec.describe EventsController, type: :controller do
       expect(Event.all.length).to eq 1
     end
   end
+
+  describe "DELETE 'destroy'" do
+    before :each do
+      post :create, event_params
+    end
+    it "redirects to user_events_path" do
+      delete :destroy, user_id: user.id, id: event.id
+      expect(response.status).to eq 302
+      expect(subject).to redirect_to user_events_path(1)
+    end
+    it "successfully deletes event" do
+      expect(Event.all.length).to eq 1
+      delete :destroy, user_id: user.id, id: 1
+      expect(Event.all.length).to eq 0
+    end
+  end
 end
