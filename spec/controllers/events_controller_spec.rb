@@ -24,6 +24,22 @@ RSpec.describe EventsController, type: :controller do
     }
   end
 
+  let(:event_update) do
+    {
+      event: {
+        name: "Filled!",
+        description: "Written!",
+        "event_date(1i)" => "2015",
+        "event_date(2i)"=>"12",
+        "event_date(3i)"=>"24",
+        "event_date(4i)"=>"00",
+        "event_date(5i)"=>"00"
+      },
+      user_id: 1,
+      id: 1
+    }
+  end
+
   describe "GET 'index'" do
     it "gets a success response and renders index template" do
       get :index, user_id: user.id
@@ -82,6 +98,28 @@ RSpec.describe EventsController, type: :controller do
       get :edit, user_id: user.id, id: event.id
       expect(response.status).to eq 200
       expect(subject).to render_template :edit
+    end
+  end
+
+  describe "POST 'update'" do
+    before :each do
+      event
+    end
+    it "if return_to is specified, redirects to that path" do
+      session[:return_to] = user_event_path(:user_id => 1, :id => 1)
+      post :update, event_update
+      expect(response.status).to eq 302
+      expect(subject).to redirect_to session[:return_to]
+    end
+    it "if no return_to is specified, redirects to root route" do
+      post :update, event_update
+      expect(response.status).to eq 302
+      expect(subject).to redirect_to root_path
+    end
+    it "successfully updates event" do
+      expect(Event.first.name).to eq "Fill that blank space"
+      post :update, event_update
+      expect(Event.first.name).to eq "Filled!"
     end
   end
 end
