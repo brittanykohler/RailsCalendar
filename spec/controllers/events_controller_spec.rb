@@ -76,4 +76,12 @@ RSpec.describe EventsController, type: :controller do
       expect(Event.all.length).to eq 0
     end
   end
+
+  describe "GET 'edit'" do
+    it "gets a success response and renders edit template" do
+      get :edit, user_id: user.id, id: event.id
+      expect(response.status).to eq 200
+      expect(subject).to render_template :edit
+    end
+  end
 end
