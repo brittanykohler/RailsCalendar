@@ -1,8 +1,8 @@
 users = [
-  {name: "Taylor", bio: "#SquadGoals"},
-  {name: "Beyonce", bio: "Queen Bey"},
-  {name: "Katy", bio: "Friends with left shark"},
-  {name: "Adele", bio: "Too many grammys to count"},
+  {name: "Taylor", bio: "#SquadGoals", password: "p", password_confirmation: "p"},
+  {name: "Beyonce", bio: "Queen Bey", password: "p", password_confirmation: "p"},
+  {name: "Katy", bio: "Friends with left shark", password: "p", password_confirmation: "p"},
+  {name: "Adele", bio: "Too many grammys to count", password: "p", password_confirmation: "p"},
 ]
 
 users.each do |user|
