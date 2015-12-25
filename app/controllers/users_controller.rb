@@ -14,7 +14,14 @@ class UsersController < ApplicationController
 
   def create
     User.create(user_params[:user])
-    redirect_to "/"
+    if @user.save
+    # makes it so they don't have to login after they sign up. Takes the session data so it can run the redirect.
+    session[:user_id] = @user.id
+    redirect_to user_path(@user)
+    else
+      flash[:error] = "Try again. Or you may already be a user. Try logging in."
+      render :new
+    end
   end
 
   def edit
@@ -47,6 +54,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(user:[:name, :bio])
+    params.permit(user:[:name, :bio, :password, :password_confirmation])
   end
 end

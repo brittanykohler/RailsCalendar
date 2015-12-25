@@ -1,0 +1,25 @@
+<div class="col-md-12 text-center error-message">
+<% if !flash[:error].nil? %>
+  <%= flash[:error] %>
+<% end %>
+</div>
+
+
+<%= form_for(:session_data, url: sessions_path, html: {class: "form-group" }) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <br>
+  <div class="col-md-12 text-center">
+    <%= f.submit "Login", class:"btn black-button margin-bottom" %>
+  </div>
+<% end %>
+
+<div class="col-md-12 text-center">
+  <%= link_to "Become a new user", new_user_path %>
+</div>
