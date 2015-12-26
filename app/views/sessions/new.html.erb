@@ -4,19 +4,32 @@
 <% end %>
 </div>
 
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1>Sign in</h1>
+  </div>
+</div>
+
 
 <%= form_for(:session_data, url: sessions_path, html: {class: "form-group" }) do |f| %>
+
   <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.label :name, class: "col-md-5 control-label text-right"%>
+    <div class="col-md-7">
+        <%= f.text_field :name, class: "user-field" %>
+    </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control" %>
+    <%= f.label :password, class: "col-md-5 control-label text-right"%>
+    <div class="col-md-7">
+        <%= f.password_field :password, class: "user-field" %>
+    </div>
   </div>
+
   <br>
-  <div class="col-md-12 text-center">
-    <%= f.submit "Login", class:"btn black-button margin-bottom" %>
+  <div class="form-actions">
+      <%= f.submit "login", class: "submit-button" %>
   </div>
 <% end %>
 
