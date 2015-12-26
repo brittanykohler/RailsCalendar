@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
   data = params[:session_data]
-  @user = User.find_by_email(data[:email])
+  @user = User.where(name: data[:name]).first
     if !@user.nil?
       if @user.authenticate(data[:password])
         session[:user_id] = @user.id

@@ -4,27 +4,7 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12 text-center">
-    <h2 class="home-pg-sub-header">Choose a user</h2>
-  </div>
-</div>
-
-<% @users.each do |user| %>
-  <div class="row">
-    <div class="col-md-5"></div>
-    <div class="col-md-1 text-center">
-      <%= link_to "#{user.name}", user_path(id: user.id), class:"user-link" %>
-    </div>
-    <div class="col-md-1 text-center">
-        <%= link_to "x", user_path(id: user.id), method: :delete, class:"user-link" %>
-    </div>
-    <div class="col-md-5"></div>
-</div>
-<% end %>
-
-<div class="row row-padding">
-  <div class="col-md-12 text-center">
-    <%= link_to "Add user", new_user_path, class: "add-link" %>
-  </div>
+<div class="button-container">
+    <%= link_to "Login", new_session_path, class:"user-button gray-button" %>
+    <%= link_to "Sign up", new_user_path, class:"user-button" %>
 </div>
