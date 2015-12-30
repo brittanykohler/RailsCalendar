@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    # I am not sure if you need the @users instance variable, because you don't actually list all users on the index page
+    # @users = User.all
   end
 
   def show
