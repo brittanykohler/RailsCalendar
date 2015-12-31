@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if !@user.nil?
       if @user.authenticate(data[:password])
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        redirect_to user_events_path(user_id: @user.id)
       else # if password doesn't match:
         flash.now[:error] = "Incorrect username or password"
         render :new
