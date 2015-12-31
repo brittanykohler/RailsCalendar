@@ -3,7 +3,7 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
-  color: #1c1c58;
+  // color: #1c1c58;
 }
 
 .form-actions {
@@ -181,4 +181,23 @@ hr {
 
 #event_event_date_1i, #event_event_date_2i, #event_event_date_3i, #event_event_date_4i, #event_event_date_5i {
   border: none;
+}
+
+.black-button {
+  background-color: #000000 !important;
+  color: #FFFFFF;
+}
+
+.black-button:hover {
+  text-decoration: none;
+  color: #bfbfbf;
+}
+
+.gray-link {
+  color: #666666;
+}
+
+.gray-link:hover {
+  color: #000000;
+  text-decoration: none;
 }
