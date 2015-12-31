@@ -1,0 +1,11 @@
+<div class="row nav-class">
+  <div class="col-md-1 text-center">
+    <%= link_to "home", "/", class: "nav-link" %>
+  </div>
+  <div class="col-md-1 text-center">
+    <%= link_to @user.name.downcase, user_path(id: @user.id), class: "nav-link" %>
+  </div>
+  <div class="col-md-1 text-center">
+    <%= link_to "logout", logout_path, method: :delete, class: "nav-link" %>
+  </div>
+</div>
