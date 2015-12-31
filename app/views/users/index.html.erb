@@ -4,6 +4,16 @@
   </div>
 </div>
 
+<%= form_for(:session_data, url: sessions_path, html: {class: "form-group" }) do |f| %>
+
+  <%= f.label :name, class: ""%>
+  <%= f.text_field :name, class: "" %>
+
+  <%= f.label :password, class: ""%>
+  <%= f.password_field :password, class: "" %>
+  <%= f.submit "login", class: "submit-button" %>
+<% end %>
+
 <div class="row">
   <div class="col-md-12 text-center">
     <img class="home-pg-img" src="/assets/calendar.png">
