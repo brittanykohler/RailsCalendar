@@ -1,4 +1,6 @@
-<div class="row">
+<%= render partial:"nav" %>
+
+<!-- <div class="row">
   <div class="col-md-12 text-center">
     <%= link_to "home", "/", class: "nav-link" %>
   </div>
@@ -10,6 +12,6 @@
     <hr>
   </div>
   <div class="col-md-1"></div>
-</div>
+</div> -->
 
 <%= render partial:"event_form", locals:{url: user_event_path, method: :patch} %>

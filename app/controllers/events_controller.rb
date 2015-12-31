@@ -8,11 +8,13 @@ class EventsController < ApplicationController
   def show
     id = params[:id]
     @event = Event.find(id)
+    @user = User.find(params[:user_id])
   end
 
   def new
     @event = Event.new
     @event.event_date = DateTime.strptime(params[:cal_date], '%Y-%m-%d')
+    @user = User.find(params[:user_id])
   end
 
   def create
@@ -35,6 +37,7 @@ class EventsController < ApplicationController
   def edit
     id = params[:id]
     @event = Event.find(id)
+    @user = User.find(params[:user_id])
     session[:return_to] = request.referer
   end
 
