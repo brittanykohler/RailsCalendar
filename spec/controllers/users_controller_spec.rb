@@ -65,7 +65,14 @@ RSpec.describe UsersController, type: :controller do
       end
 
       describe "GET #show" do
-
+        it "is not successful and redirects" do
+          get :show, id: user.id
+          expect(response).to have_http_status(302)
+        end
+        it "redirects to the log in page" do
+          get :show, id: user.id
+          expect(subject).to redirect_to new_session_path
+        end
       end
 
       describe "GET #edit" do
@@ -128,7 +135,20 @@ RSpec.describe UsersController, type: :controller do
     end
 
     describe "GET #show" do
-
+      it "responds successfully with an HTTP 200 status code" do
+        get :show, id: user.id
+        expect(response).to be_success
+        expect(response).to have_http_status(200)
+      end
+      it "renders the show template" do
+        get :show, id: user.id
+        expect(subject).to render_template :show
+      end
+      it "does not allow user to view another user's page" do
+        another_user = User.create(name: "Hi", bio: "Hiya", password: "r", password_confirmation: "r")
+        get :show, id: another_user.id
+        expect(subject).to redirect_to user_path(user)
+      end
     end
 
     describe "GET #edit" do
