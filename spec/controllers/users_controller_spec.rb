@@ -76,7 +76,14 @@ RSpec.describe UsersController, type: :controller do
       end
 
       describe "GET #edit" do
-
+        it "is not successful and redirects" do
+          get :edit, id: user.id
+          expect(response).to have_http_status(302)
+        end
+        it "redirects to the log in page" do
+          get :edit, id: user.id
+          expect(subject).to redirect_to new_session_path
+        end
       end
 
       describe "PATCH #update" do
@@ -147,6 +154,15 @@ RSpec.describe UsersController, type: :controller do
     end
 
     describe "GET #edit" do
+      it "responds successfully with an HTTP 200 status code" do
+        get :edit, id: user.id
+        expect(response).to be_success
+        expect(response).to have_http_status(200)
+      end
+      it "renders the edit template" do
+        get :edit, id: user.id
+        expect(subject).to render_template :edit
+      end
 
     end
 
