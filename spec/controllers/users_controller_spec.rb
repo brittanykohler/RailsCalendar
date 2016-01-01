@@ -144,11 +144,6 @@ RSpec.describe UsersController, type: :controller do
         get :show, id: user.id
         expect(subject).to render_template :show
       end
-      it "does not allow user to view another user's page" do
-        another_user = User.create(name: "Hi", bio: "Hiya", password: "r", password_confirmation: "r")
-        get :show, id: another_user.id
-        expect(subject).to redirect_to user_path(user)
-      end
     end
 
     describe "GET #edit" do

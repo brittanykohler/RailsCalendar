@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_action :require_user, only: [:show]
 before_action :redirect_if_logged_in, only:[:new, :create]
 
   def index
@@ -8,8 +8,6 @@ before_action :redirect_if_logged_in, only:[:new, :create]
   end
 
   def show
-    id = params[:id]
-    @user = User.find(id)
   end
 
   def new
