@@ -6,31 +6,75 @@ RSpec.describe UsersController, type: :controller do
     User.create(name: "Emily", bio: "Hiya", password: "p", password_confirmation: "p")
   end
 
-  let(:new_user_params) do
+  let(:user_params) do
     {
       user:{
         name: "Fred", bio:"A guy", password:"p", password_confirmation: "p"
       }
     }
 
-    let(:update_user_params) do
-      {
-        user:{
-          name: "Fred2", bio:"A great guy", password:"p", password_confirmation: "p"
-        }
-        id: 1
-      }
+    describe "User is logged out" do
 
-  describe "User is logged in" do
+      describe "GET #index" do
+      end
+
+      describe "GET #new" do
+
+      end
+
+      describe "POST #create" do
+
+      end
+
+      describe "GET #show" do
+
+      end
+
+      describe "GET #edit" do
+
+      end
+
+      describe "PATCH #update" do
+
+      end
+
+      describe "DELETE #destroy" do
+
+      end
+
+    end
+
+    describe "User is logged in" do
 
     before (:each) do
       session[:user_id] = user.id
     end
 
-  end
+    describe "GET #index" do
+    end
 
-  describe "User is logged out" do
+    describe "GET #new" do
 
-  end
+    end
+
+    describe "POST #create" do
+
+    end
+
+    describe "GET #show" do
+
+    end
+
+    describe "GET #edit" do
+
+    end
+
+    describe "PATCH #update" do
+
+    end
+
+    describe "DELETE #destroy" do
+
+    end
 
 end
