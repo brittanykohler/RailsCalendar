@@ -14,6 +14,14 @@ RSpec.describe UsersController, type: :controller do
     }
   end
 
+  let(:bad_user_params) do
+    {
+      user:{
+        name: "Fred", bio:"A guy", password:"p", password_confirmation: "q"
+      }
+    }
+  end
+
     describe "User is logged out" do
 
       describe "GET #index" do
@@ -41,7 +49,19 @@ RSpec.describe UsersController, type: :controller do
       end
 
       describe "POST #create" do
-
+        it "redirects to user show page" do
+          post :create, user_params
+          expect(subject).to redirect_to user_path(assigns(:user))
+        end
+        it "creates a new user" do
+          original_count = User.all.count
+          post :create, user_params
+          expect(User.all.count).to eq original_count + 1
+        end
+        it "renders new template on error" do
+          post :create, bad_user_params
+          expect(subject).to render_template :new
+        end
       end
 
       describe "GET #show" do
@@ -92,7 +112,19 @@ RSpec.describe UsersController, type: :controller do
     end
 
     describe "POST #create" do
-
+      it "is not successful and redirects" do
+        post :create, user_params
+        expect(response).to have_http_status(302)
+      end
+      it "does not create a new user" do
+        original_count = User.all.count
+        post :create, user_params
+        expect(User.all.count).to eq original_count
+      end
+      it "redirects to the user show page" do
+        get :new
+        expect(subject).to redirect_to user_path(user)
+      end
     end
 
     describe "GET #show" do
