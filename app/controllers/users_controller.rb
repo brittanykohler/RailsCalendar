@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :require_user, only: [:show, :edit, :update]
+before_action :require_user, only: [:show, :edit, :update, :destroy]
 before_action :redirect_if_logged_in, only:[:new, :create]
 
   def index
@@ -53,8 +53,8 @@ before_action :redirect_if_logged_in, only:[:new, :create]
   end
 
   def destroy
-    id = params[:id]
-    User.delete(id)
+    id = params[:id].to_i
+    User.delete(id) if id == @current_user.id
     redirect_to "/"
   end
 
