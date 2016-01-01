@@ -131,7 +131,18 @@ RSpec.describe UsersController, type: :controller do
       end
 
       describe "DELETE #destroy" do
-
+        it "is not successful and redirects" do
+          delete :destroy, id: user.id
+          expect(response).to have_http_status(302)
+        end
+        it "redirects to the log in page" do
+          delete :destroy, id: user.id
+          expect(subject).to redirect_to new_session_path
+        end
+        it "does not delete the user" do
+          delete :destroy, id: user.id
+          expect(User.all).to include(user)
+        end
       end
 
     end
@@ -235,7 +246,18 @@ RSpec.describe UsersController, type: :controller do
     end
 
     describe "DELETE #destroy" do
-
+      it "redirects to the home page" do
+        delete :destroy, id: user.id
+        expect(subject).to redirect_to root_path
+      end
+      it "deletes the user" do
+        delete :destroy, id: user.id
+        expect(User.all).to_not include(user)
+      end
+      it "does not allow the user to delete another user" do
+        delete :destroy, id: another_user.id
+        expect(User.all).to include(another_user)
+      end
     end
   end
 end
