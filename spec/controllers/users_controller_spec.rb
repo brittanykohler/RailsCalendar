@@ -6,6 +6,10 @@ RSpec.describe UsersController, type: :controller do
     User.create(name: "Emily", bio: "Hiya", password: "p", password_confirmation: "p")
   end
 
+  let (:another_user) do
+    User.create(name: "Heyo", bio: "Whoah", password: "q", password_confirmation: "q")
+  end
+
   let(:user_params) do
     {
       user:{
@@ -19,6 +23,31 @@ RSpec.describe UsersController, type: :controller do
       user:{
         name: "Fred", bio:"A guy", password:"p", password_confirmation: "q"
       }
+    }
+  end
+  let(:update_user_params) do
+    {
+      user:{
+        name: "New name", bio:"A guy", password:"p", password_confirmation: "p"
+      },
+      id: user.id
+    }
+  end
+  let(:update_another_user_params) do
+    {
+      user:{
+        name: "New name", bio:"what"
+      },
+      id: another_user.id
+    }
+  end
+
+  let(:bad_update_user_params) do
+    {
+      user:{
+        name: nil, bio:"A guy"
+      },
+      id: user.id
     }
   end
 
@@ -87,7 +116,18 @@ RSpec.describe UsersController, type: :controller do
       end
 
       describe "PATCH #update" do
-
+        it "is not successful and redirects" do
+          patch :update, update_user_params
+          expect(response).to have_http_status(302)
+        end
+        it "redirects to the log in page" do
+          patch :update, update_user_params
+          expect(subject).to redirect_to new_session_path
+        end
+        it "does not update the user" do
+          patch :update, update_user_params
+          expect(User.find(user.id).attributes).to eq user.attributes
+        end
       end
 
       describe "DELETE #destroy" do
@@ -167,7 +207,31 @@ RSpec.describe UsersController, type: :controller do
     end
 
     describe "PATCH #update" do
-
+      it "redirects to the page they came from" do
+        session[:return_to] = user_path(user)
+        patch :update, update_user_params
+        expect(subject).to redirect_to user_path(user)
+      end
+      it "goes to the root path if there is no referer" do
+        patch :update, update_user_params
+        expect(subject).to redirect_to root_path
+      end
+      it "updates the user" do
+        patch :update, update_user_params
+        expect(User.find(user.id).attributes).not_to eq user.attributes
+      end
+      it "renders edit template on error" do
+        patch :update, bad_update_user_params
+        expect(subject).to render_template :edit
+      end
+      it "does not allow user to edit another user" do
+        patch :update, update_another_user_params
+        expect(User.find(another_user.id).attributes).to eq another_user.attributes
+      end
+      it "redirects to edit current user if you attempt to edit another user" do
+        patch :update, update_another_user_params
+        expect(subject).to redirect_to edit_user_path(user)
+      end
     end
 
     describe "DELETE #destroy" do

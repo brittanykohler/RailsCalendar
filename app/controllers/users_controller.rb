@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :require_user, only: [:show, :edit]
+before_action :require_user, only: [:show, :edit, :update]
 before_action :redirect_if_logged_in, only:[:new, :create]
 
   def index
@@ -33,15 +33,21 @@ before_action :redirect_if_logged_in, only:[:new, :create]
 
   def update
     id = params[:id]
-    user = User.find(id)
-    user.update(
-    name: user_params[:user][:name],
-    bio: user_params[:user][:bio],
-    )
-    if session[:return_to].nil?
-      redirect_to "/"
+    @user = User.find(id)
+    if @user.id != @current_user.id
+      flash[:error] = "You cannot edit another user's info!"
+      redirect_to edit_user_path(@current_user)
     else
-      redirect_to session[:return_to]
+      @user.update(user_params[:user])
+      if @user.save
+        if session[:return_to].nil?
+          redirect_to "/"
+        else
+          redirect_to session[:return_to]
+        end
+      else
+        render "edit"
+      end
     end
     session[:return_to] = nil
   end
