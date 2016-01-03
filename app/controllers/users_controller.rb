@@ -17,8 +17,13 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id
     redirect_to user_events_path(@user)
     else
-      flash[:error] = "Try again. Or you may already be a user. Try logging in."
-      render :new
+      if User.exists?(name: @user.name)
+        flash[:error] = "Sorry, that username is not available"
+        render :new
+      else
+        flash[:error] = "Passwords must match"
+        render :new
+      end
     end
   end
 
