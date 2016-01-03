@@ -5,12 +5,11 @@ RailsCalendar was built in Ruby on Rails and was created as part of the Ada Deve
 ##Installation
 1. Clone to your local machine using the SSH URL git@github.com:brittanykohler/RailsCalendar.git
 2. Run `bundle install` to install gems
-3. Run `rake db:migrate` and `rake db:seed` for seed data
+3. Run `rake db:migrate`
 
 ##Future Improvements
 Please consider contributing to RailsCalendar to improve the functionality and design. Below are suggested improvements and features to be developed.
 
-* Adding user authentication
 * Adding rspec tests
 * Updating the calendar page to show events in chronological order on each day
 * Allowing users to create shared calendars
