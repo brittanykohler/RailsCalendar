@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
-  before_action :redirect_if_logged_in, only: [:new, :create]
-  before_action :require_user, only: [:edit, :show]
+  before_action :require_user, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_if_logged_in, only:[:new, :create]
+
 
   def index
-    @users = User.all
+    # I am not sure if you need the @users instance variable, because you don't actually list all users on the index page
+    # @users = User.all
   end
 
   def show
-    id = params[:id]
-    @user = User.find(id)
   end
 
   def new
@@ -28,29 +28,34 @@ class UsersController < ApplicationController
   end
 
   def edit
-    id = params[:id]
-    @user = User.find(id)
+    @user = @current_user
     session[:return_to] = request.referer
   end
 
   def update
     id = params[:id]
-    user = User.find(id)
-    user.update(
-    name: user_params[:user][:name],
-    bio: user_params[:user][:bio],
-    )
-    if session[:return_to].nil?
-      redirect_to "/"
+    @user = User.find(id)
+    if @user.id != @current_user.id
+      flash[:error] = "You cannot edit another user's info!"
+      redirect_to edit_user_path(@current_user)
     else
-      redirect_to session[:return_to]
+      @user.update(user_params[:user])
+      if @user.save
+        if session[:return_to].nil?
+          redirect_to "/"
+        else
+          redirect_to session[:return_to]
+        end
+      else
+        render "edit"
+      end
     end
     session[:return_to] = nil
   end
 
   def destroy
-    id = params[:id]
-    User.delete(id)
+    id = params[:id].to_i
+    User.delete(id) if id == @current_user.id
     redirect_to "/"
   end
 
