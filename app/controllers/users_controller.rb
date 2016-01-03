@@ -37,6 +37,7 @@ class UsersController < ApplicationController
       redirect_to edit_user_path(@current_user)
     else
       @user.update(user_params[:user])
+      updating_username = updating_username?(user_params[:user][:name], username)
       if @user.save
         if session[:return_to].nil?
           redirect_to "/"
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
           redirect_to session[:return_to]
         end
       else
-        if @user.name != username
+        if updating_username && User.exists?(name: @user.name)
           @user.name = username
           flash.now[:error] = "Sorry, that username is not available"
           render "edit"
@@ -61,6 +62,10 @@ class UsersController < ApplicationController
     id = params[:id].to_i
     User.delete(id) if id == @current_user.id
     redirect_to "/"
+  end
+
+  def updating_username?(name_in_form, username)
+    username != name_in_form
   end
 
   private

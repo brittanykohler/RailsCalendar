@@ -18,7 +18,6 @@
   </div>
 </div>
 
-<div class="button-container">
-    <%= link_to "Edit", edit_user_path(:user_id => params[:id]), class:"user-button gray-button" %>
-    <%= link_to "Calendar", user_events_path(:user_id => params[:id]), class:"user-button" %>
+<div class="col-md-12 text-center">
+  <%= link_to "Edit Details", edit_user_path(:user_id => params[:id]), class:"btn black-button" %>
 </div>
