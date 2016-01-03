@@ -21,30 +21,6 @@ body {
   width: 400px;
 }
 
-.submit-button {
-  width: 60px;
-  height: 20px;
-  display: inline;
-  border-width: 1px;
-  border-style: none;
-  background-color: #FFFFFF;
-  font-size: 13px;
-  margin-left: auto;
-  margin-right:auto;
-  margin-top: 30px;
-}
-
-.submit-button-event {
-  border-width: 1px;
-  border-style: none;
-  background-color: #FFFFFF;
-  font-size: 13px;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60px;
-}
-
 .cal-width-height {
   width: 10%;
   height: 70px;
@@ -62,6 +38,10 @@ body {
 }
 
 .not-month a {
+  color: #999999;
+}
+
+.not-month {
   color: #999999;
 }
 
@@ -86,10 +66,6 @@ body {
 }
 
 .home-pg-header {
-  // font-family: 'Satisfy', cursive;
-  // font-family: 'Cedarville Cursive', cursive;
-  // font-family: 'Kristi', cursive;
-  // font-size: 250px;
   max-width:100%;
   max-height:100%;
 }
@@ -165,31 +141,6 @@ hr {
   text-decoration: none;
 }
 
-.user-button {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: inline-block;
-  border-color: #000000;
-  border-style: solid;
-  border-width: 1px;
-  text-align: center;
-  padding-top: 40px;
-  margin: 10px;
-  color: #000000;
-  font-weight: bold;
-}
-
-.gray-button {
-  background-color: #e4e0eb;
-}
-
-.button-container {
-  margin: auto;
-  width: 250px;
-  margin-top: 20px;
-}
-
 .row-padding {
   padding-top: 20px;
 }
@@ -200,6 +151,7 @@ hr {
 
 #event_event_date_1i, #event_event_date_2i, #event_event_date_3i, #event_event_date_4i, #event_event_date_5i {
   border: none;
+  background-color: #FFFFFF;
 }
 
 .black-button {
