@@ -12,12 +12,12 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_events_path(user_id: @user.id)
       else # if password doesn't match:
-        flash.now[:error] = "Incorrect username or password"
-        render :new
+        flash[:error] = "Incorrect username or password"
+        redirect_to root_path
       end
     else # user is not in the system (name doesn't match any in database):
-      flash.now[:error] = "Incorrect username or password"
-      render :new
+      flash[:error] = "Incorrect username or password"
+      redirect_to root_path
     end
   end
 

@@ -4,6 +4,12 @@
   </div>
 </div>
 
+<div class="col-md-12 text-center error-message">
+<% if !flash[:error].nil? %>
+  <%= flash[:error] %>
+<% end %>
+</div>
+
 <div class="col-md-12 text-center">
   <%= form_for(:session_data, url: sessions_path, html: {class: "form-group" }) do |f| %>
     <%= f.label "User name", class: ""%>

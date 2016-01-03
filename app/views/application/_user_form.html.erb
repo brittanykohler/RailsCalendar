@@ -6,8 +6,6 @@
 <% end %>
 </div>
 
-<!-- <h3 class="text-center">Sign up to create a new calendar</h3> -->
-
 <%= form_for @user do |f| %>
   <div class="form-group">
     <%= f.label :name, class: "col-md-5 control-label text-right" %>
@@ -38,6 +36,6 @@
   </div>
 
   <div class="form-actions">
-      <%= f.submit "submit", class: "submit-button" %>
+      <%= f.submit "submit", class: "btn black-button top-margin" %>
   </div>
 <% end %>
