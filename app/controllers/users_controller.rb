@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :redirect_if_logged_in, only: [:new, :create]
+  before_action :require_user, only: [:edit, :show]
+
   def index
     @users = User.all
   end

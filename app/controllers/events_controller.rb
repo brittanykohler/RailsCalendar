@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :require_user, only: [:edit, :show, :index]
+
   def index
     @events = Event.where(:user_id => params[:user_id])
     @user = User.find(params[:user_id])
