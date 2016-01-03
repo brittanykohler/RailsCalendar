@@ -65,7 +65,7 @@ class UsersController < ApplicationController
   end
 
   def updating_username?(name_in_form, username)
-    username != name_in_form
+    name_in_form != username
   end
 
   private
