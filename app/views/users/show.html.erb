@@ -5,9 +5,16 @@
     <h1 class="cursive-header">Account Details</h1>
   </div>
 </div>
+
 <div class="row">
   <div class="col-md-12 text-center">
-      Username: <%= @current_user.name %>
+      <h3>Username: <%= @current_user.name %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 text-center">
+      <h3>Account Created: <%= @current_user.created_at.strftime("%D") %></h3>
   </div>
 </div>
 

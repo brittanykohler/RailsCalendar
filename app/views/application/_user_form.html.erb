@@ -1,7 +1,7 @@
 <div class="col-md-12 text-center error-message">
-<% if !flash.now[:error].nil? || !flash[:error].nil? %>
+<% if !flash.now[:error].nil?%>
   <%= flash.now[:error] %>
-<% else %>
+<% elsif !flash[:error].nil? %>
   <%= flash[:error] %>
 <% end %>
 </div>

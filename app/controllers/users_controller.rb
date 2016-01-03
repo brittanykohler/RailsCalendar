@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.save
     # makes it so they don't have to login after they sign up. Takes the session data so it can run the redirect.
     session[:user_id] = @user.id
-    redirect_to user_path(@user)
+    redirect_to user_events_path(@user)
     else
       flash[:error] = "Try again. Or you may already be a user. Try logging in."
       render :new
@@ -30,8 +30,10 @@ class UsersController < ApplicationController
   def update
     id = params[:id]
     @user = User.find(id)
+    #Saving username so that the correct name shows up in nav if update does not save
+    username = @user.name
     if @user.id != @current_user.id
-      flash[:error] = "You cannot edit another user's info!"
+      flash[:error] = "You cannot edit another user's information"
       redirect_to edit_user_path(@current_user)
     else
       @user.update(user_params[:user])
@@ -42,7 +44,14 @@ class UsersController < ApplicationController
           redirect_to session[:return_to]
         end
       else
-        render "edit"
+        if @user.name != username
+          @user.name = username
+          flash.now[:error] = "Sorry, that username is not available"
+          render "edit"
+        else
+          flash.now[:error] = "Password must match"
+          render "edit"
+        end
       end
     end
     session[:return_to] = nil
