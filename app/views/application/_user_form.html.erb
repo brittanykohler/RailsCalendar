@@ -15,13 +15,6 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :bio, class: "col-md-5 control-label text-right"%>
-    <div class="col-md-7">
-        <%= f.text_field :bio, class: "user-field" %>
-    </div>
-  </div>
-
-  <div class="form-group">
     <%= f.label :password, class: "col-md-5 control-label text-right"%>
     <div class="col-md-7">
         <%= f.password_field :password, class: "user-field" %>
@@ -39,7 +32,3 @@
       <%= f.submit "submit", class: "btn black-button top-margin bottom-margin" %>
   </div>
 <% end %>
-
-<div class="col-md-12 text-center">
-  <%= link_to "Already registered? Login", root_path, class:"gray-link" %>
-</div>
