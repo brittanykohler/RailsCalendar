@@ -116,11 +116,18 @@ body {
 }
 
 .month-button {
-  border-color: #FFFFFF;
+  border-color: #F5F5F5;
+  background-color: #F5F5F5;
   padding-left: 10px;
   padding-right: 10px;
   margin-right: 10px;
   width: 40px;
+}
+
+.month-button:hover {
+  border-color: #F5F5F5;
+  background-color: #F5F5F5;
+  color: #999999;
 }
 
 .nav-class {
@@ -140,7 +147,7 @@ hr {
 }
 
 .event-link {
-  color: #00cc99;
+  color: #999999;
   font-size: 10px;
 }
 
@@ -150,11 +157,11 @@ hr {
 
  .event-link:hover {
   text-decoration: none;
-  color: #1c1c58;
+  color: #000000;
 }
 
 .add-link:hover, .nav-link:hover, .user-button:hover, .user-link:hover {
-  color: #00cc99;
+  color: #999999;
   text-decoration: none;
 }
 
