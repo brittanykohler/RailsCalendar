@@ -15,8 +15,12 @@
 
 <div class="row">
   <div class="col-md-12 text-center">
-    <h1>Add a user</h1>
+    <h1 class="cursive-header">Create Account</h1>
   </div>
 </div>
 
 <%= render partial:"user_form" %>
+
+<div class="col-md-12 text-center">
+  <%= link_to "Already registered? Login", root_path, class:"gray-link" %>
+</div>

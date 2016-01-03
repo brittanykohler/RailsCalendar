@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div class="button-container">
-    <%= link_to "Edit event", edit_user_event_path(:user_id => @event.user_id, :id => @event.id), class:"user-button gray-button" %>
-    <%= link_to "Delete event", user_event_path(:user_id => @event.user_id, :id => @event.id), method: :delete, class:"user-button" %>
+<div class="col-md-12 text-center top-margin">
+    <%= link_to "Edit event", edit_user_event_path(:user_id => @event.user_id, :id => @event.id), class:"btn black-button" %>
+    <%= link_to "Delete event", user_event_path(:user_id => @event.user_id, :id => @event.id), method: :delete, class:"btn black-button" %>
 </div>
