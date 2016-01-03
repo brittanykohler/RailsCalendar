@@ -1,16 +1,4 @@
-<div class="row">
-  <div class="col-md-12 text-center">
-    <%= link_to "home", "/", class:"nav-link" %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-    <hr>
-  </div>
-  <div class="col-md-1"></div>
-</div>
+<%= render partial:"nav" %>
 
 <div class="row">
   <div class="col-md-12 text-center">
@@ -24,6 +12,6 @@
 </div>
 
 <div class="button-container">
-    <%= link_to "Edit user", edit_user_path(:user_id => params[:id]), class:"user-button gray-button" %>
+    <%= link_to "Edit", edit_user_path(:user_id => params[:id]), class:"user-button gray-button" %>
     <%= link_to "Calendar", user_events_path(:user_id => params[:id]), class:"user-button" %>
 </div>

@@ -4,12 +4,29 @@
   </div>
 </div>
 
+<div class="col-md-12 text-center error-message">
+<% if !flash[:error].nil? %>
+  <%= flash[:error] %>
+<% end %>
+</div>
+
+<div class="col-md-12 text-center">
+  <%= form_for(:session_data, url: sessions_path, html: {class: "form-group" }) do |f| %>
+    <%= f.label "User name", class: ""%>
+    <%= f.text_field :name, class: "" %>
+
+    <%= f.label :password, class: ""%>
+    <%= f.password_field :password, class: "" %>
+    <%= f.submit "login", class: " btn black-button" %>
+  <% end %>
+</div>
+
 <div class="row">
   <div class="col-md-12 text-center">
+    <img class="home-pg-img" src="/assets/calendar.png">
   </div>
 </div>
 
-<div class="button-container">
-    <%= link_to "Login", new_session_path, class:"user-button gray-button" %>
-    <%= link_to "Sign up", new_user_path, class:"user-button" %>
+<div class="col-md-12 text-center">
+  <%= link_to "Not registered? Sign up", new_user_path, class:"gray-link" %>
 </div>

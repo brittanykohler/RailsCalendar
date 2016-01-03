@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   def require_user
     if !logged_in?
       flash[:error] = "Please log in to view this section"
- 	    redirect_to new_session_path
+ 	    redirect_to root_path
     end
   end
 
@@ -20,9 +20,9 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_if_logged_in
-    # if the session user id exists, find the user from that id and if they exist, redirect to their show_page.
+    # if the session user id exists, find the user from that id and if they exist, redirect to their calendar.
     if logged_in?
-      redirect_to user_path(@current_user)
+      redirect_to user_events_path(user_id: @current_user.id)
     end
   end
 end

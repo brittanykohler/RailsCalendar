@@ -1,0 +1,22 @@
+<div class="row nav-class">
+  <div class="col-md-1 col-md-offset-1 text-center">
+    <span>hi </span><%= @user.name.downcase %>
+  </div>
+  <div class="col-md-1 col-md-offset-6 text-center">
+    <%= link_to "account", user_path(id: @user.id), class: "nav-link" %>
+  </div>
+  <div class="col-md-1 text-center">
+    <%= link_to "calendar", user_events_path(user_id: @user.id), class: "nav-link" %>
+  </div>
+  <div class="col-md-1 text-center">
+    <%= link_to "logout", logout_path, method: :delete, class: "nav-link" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <hr>
+  </div>
+  <div class="col-md-1"></div>
+</div>
