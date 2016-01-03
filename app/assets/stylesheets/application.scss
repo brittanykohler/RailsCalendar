@@ -4,6 +4,7 @@
 body {
   font-family: 'Quicksand', sans-serif;
   // color: #1c1c58;
+  background-color: #F5F5F5;
 }
 
 .form-actions {
@@ -80,13 +81,19 @@ body {
 }
 
 .home-pg-header {
-  font-family: 'Satisfy', cursive;
-  font-size: 84px;
+  // font-family: 'Satisfy', cursive;
+  // font-family: 'Cedarville Cursive', cursive;
+  // font-family: 'Kristi', cursive;
+  // font-size: 250px;
+  max-width:100%;
+  max-height:100%;
 }
 
 .home-pg-header-container {
-  background-color: #F2F2F2;
-  height: 100%;
+  width: 70%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .home-pg-img {

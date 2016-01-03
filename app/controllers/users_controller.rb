@@ -2,13 +2,8 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:show, :edit, :update, :destroy]
   before_action :redirect_if_logged_in, only:[:new, :create]
 
-
-  def index
-    # I am not sure if you need the @users instance variable, because you don't actually list all users on the index page
-    # @users = User.all
-  end
-
   def show
+    @user = current_user
   end
 
   def new
